@@ -1,0 +1,21 @@
+<mat-accordion multi="true" *ngIf="posts.length > 0">
+  <mat-expansion-panel *ngFor="let post of posts">
+    <mat-expansion-panel-header>
+      <h2>{{ post.title }}</h2>
+    </mat-expansion-panel-header>
+    <hr>
+    <h4>No.of mentors: {{post.mentors}}</h4>
+    <h4>No.of mentees: {{post.mentees}}</h4>
+    <p>{{ post.content }}</p>
+    <br>
+    Category:{{post.category}}
+    <mat-action-row>
+      <a [routerLink]="['/posts/',post.id]">
+        <button mat-button color="primary">EDIT</button></a>
+      <button mat-button color="warn" (click)="Delete(post.id)">DELETE</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<hr>
+<mat-paginator [length]="totalPosts" [pageSize]="projsPerPage" [pageSizeOptions]="pageSizeOpts" (page)="onChangedPage($event)"></mat-paginator>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>

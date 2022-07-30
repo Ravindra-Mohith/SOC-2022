@@ -1,0 +1,25 @@
+<mat-card>
+  <form [formGroup]="form" (submit)="onAddPost()">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Project Title" formControlName="title">
+      <mat-error *ngIf="form.get('title')!.invalid">Please enter project title.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="4" placeholder="Project Content" formControlName="content"></textarea>
+      <mat-error *ngIf="form.get('content')!.invalid">Please enter project title.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="No.of Mentors required" formControlName="mentors">
+      <mat-error *ngIf="form.get('mentors')!.invalid">Please enter project mentors.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="number" placeholder="No.of Mentees required" formControlName="mentees">
+      <mat-error *ngIf="form.get('mentees')!.invalid">Please enter project mentees.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Project category" formControlName="category">
+      <mat-error *ngIf="form.get('category')!.invalid">Please enter project category.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Project</button>
+  </form>
+</mat-card>

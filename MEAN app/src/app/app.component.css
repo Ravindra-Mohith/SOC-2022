@@ -1,0 +1,6 @@
+main {
+    position: absolute;
+    left: 50%;
+    top: 15rem;
+    transform: translateX(-50%);
+}
